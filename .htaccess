@@ -550,3 +550,4 @@ RewriteRule ^image/([^/]+)/([^/]+)/([^/]+)/([^/]+)/*$ image.php?w=$1&h=$2&text=$
 RewriteRule ^image/([^/]+)/([^/]+)/([^/]+)/*$ image.php?w=$1&h=$2&text=$3 [L]
 RewriteRule ^image/([^/]+)/([^/]+)/*$ image.php?w=$1&h=$2 [L]
 RewriteRule ^image/([^/]+)/*$ image.php?w=$1  [L]
+RewriteRule ^image/*$ image.php  [L]

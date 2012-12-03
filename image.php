@@ -1,11 +1,24 @@
 <?php
 
 $default_size = array(300, 200);
+$exts = array('gif', 'jpg', 'jpeg', 'png');
 
-$image_width = (isset($_GET['w']) && !empty($_GET['w'])) ? $_GET['w'] : $default_size[0];
-$image_height = (isset($_GET['h']) && !empty($_GET['h'])) ? $_GET['h'] : $default_size[1];
-$text = (isset($_GET['text']) && !empty($_GET['text'])) ? $_GET['text'] : $image_width . 'x' . $image_height;
-$ext = (isset($_GET['ext']) && !empty($_GET['ext'])) ? $_GET['ext'] : 'gif';
+$w = isset($_GET['w']) ? $_GET['w'] : null;
+$h = isset($_GET['h']) ? $_GET['h'] : null;
+$t = isset($_GET['text']) ? $_GET['text'] : null;
+$e = isset($_GET['ext']) ? $_GET['ext'] : null; 
+
+$image_width = !empty($w) ? $w : $default_size[0];
+$image_height = !empty($h) ? $h : $default_size[1];
+$default_text = $image_width . 'x' . $image_height;
+$text = !empty($t) ? $t : $default_text;
+$ext = !empty($e) ? $e : 'gif';
+
+// se ho scritto image/300/200/png il terzo parametro (text) vale come extensione, non come testo
+if (!empty($t) && (in_array($text, $exts) && empty($e))) {
+	$ext = $text;
+	$text = $default_text;
+}
 
 
 $ttf = 'font/typoslab.ttf';
