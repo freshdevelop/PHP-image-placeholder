@@ -546,12 +546,12 @@ AddCharset utf-8 .atom .css .js .json .rss .vtt .xml
 
 # image/width/height/text/ext --> image.php$w=$1&h=$2&text=$3&ext=$4
 
-RewriteRule ^path/(.+)/(.+)/(.+)/(.+)/*$ path.php?w=$1&h=$2&text=$2&ext=$4 [L]
-RewriteRule ^path/(.+)/(.+)/(.+)/*$ path.php?w=$1&h=$2&text=$3 [L]
-RewriteRule ^path/(.+)/(.+)/*$ path.php?w=$1&h=$2 [L]
-RewriteRule ^path/(.+)/*$ path.php?w=$1 [L]
+RewriteRule ^path/([^/]+)/([^/]+)/([^/]+)/([^/]+)/*$ path.php?w=$1&h=$2&text=$2&ext=$4 [L]
+RewriteRule ^path/([^/]+)/([^/]+)/([^/]+)/*$ path.php?w=$1&h=$2&text=$3 [L]
+RewriteRule ^path/([^/]+)/([^/]+)/*$ path.php?w=$1&h=$2 [L]
+RewriteRule ^path/([^/]+)/*$ path.php?w=$1 [L]
 
-RewriteRule ^image/(.+)/(.+)/(.+)/(.+)/*$ image.php?w=$1&h=$2&text=$2&ext=$4 [L]
-RewriteRule ^image/(.+)/(.+)/(.+)/*$ image.php?w=$1&h=$2&text=$3 [L]
-RewriteRule ^image/(.+)/(.+)/*$ image.php?w=$1&h=$2 [L]
-RewriteRule ^image/(.+)/*$ image.php?w=$1 [L]
+RewriteRule ^image/([^/]+)/([^/]+)/([^/]+)/([^/]+)/*$ image.php?w=$1&h=$2&text=$2&ext=$4 [L]
+RewriteRule ^image/([^/]+)/([^/]+)/([^/]+)/*$ image.php?w=$1&h=$2&text=$3 [L]
+RewriteRule ^image/([^/]+)/([^/]+)/*$ image.php?w=$1&h=$2 [L]
+RewriteRule ^image/([^/]+)/*$ image.php?w=$1  [L]
